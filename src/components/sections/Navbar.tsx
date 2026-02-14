@@ -9,9 +9,31 @@ import { cn } from "@/lib/utils";
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
+    const [isLightSection, setIsLightSection] = useState(false);
 
     useEffect(() => {
-        const handleScroll = () => setScrolled(window.scrollY > 50);
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 50);
+
+            // Detect if navbar is over a light or dark section
+            const navHeight = 80;
+            const checkPoint = navHeight / 2;
+            const el = document.elementFromPoint(window.innerWidth / 2, checkPoint);
+            if (el) {
+                const section = el.closest('section, header, footer');
+                if (section) {
+                    const bg = getComputedStyle(section).backgroundColor;
+                    // Parse RGB and check luminance — light sections have high luminance
+                    const match = bg.match(/\d+/g);
+                    if (match && match.length >= 3) {
+                        const [r, g, b] = match.map(Number);
+                        const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+                        setIsLightSection(luminance > 0.6);
+                    }
+                }
+            }
+        };
+
         window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
@@ -32,7 +54,11 @@ const Navbar = () => {
         <>
             <nav className={cn(
                 "fixed top-0 left-0 right-0 z-[100] transition-all duration-700",
-                scrolled ? "bg-stone-950/98 backdrop-blur-2xl shadow-2xl py-4 border-b border-white/5" : "bg-transparent py-8"
+                scrolled
+                    ? isLightSection
+                        ? "bg-white/95 backdrop-blur-2xl shadow-lg py-4 border-b border-stone-200/60"
+                        : "bg-stone-950/98 backdrop-blur-2xl shadow-2xl py-4 border-b border-white/5"
+                    : "bg-transparent py-8"
             )}>
                 <div className="container mx-auto px-6 lg:px-16 flex justify-between items-center">
                     <div className="flex items-center gap-5 cursor-pointer group" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
@@ -41,22 +67,41 @@ const Navbar = () => {
                                 src="/rajat_avatar.webp"
                                 alt="Rajat Srivastava"
                                 fill
-                                className="object-cover rounded-2xl border border-white/10 group-hover:border-nobel-gold/50 transition-all rotate-3 group-hover:rotate-0"
+                                className={cn(
+                                    "object-cover rounded-2xl transition-all rotate-3 group-hover:rotate-0",
+                                    scrolled && isLightSection
+                                        ? "border border-stone-200/60 group-hover:border-nobel-gold/50"
+                                        : "border border-white/10 group-hover:border-nobel-gold/50"
+                                )}
                             />
                         </div>
                         <div className="flex flex-col">
-                            <span className="font-sans font-semibold text-base tracking-tight text-white leading-none mb-1 uppercase">RAJAT <span className="text-stone-500 font-light">SRIVASTAVA</span></span>
+                            <span className={cn(
+                                "font-sans font-semibold text-base tracking-tight leading-none mb-1 uppercase transition-colors duration-500",
+                                scrolled && isLightSection ? "text-stone-950" : "text-white"
+                            )}>
+                                RAJAT <span className={cn(
+                                    "font-light transition-colors duration-500",
+                                    scrolled && isLightSection ? "text-stone-400" : "text-stone-500"
+                                )}>SRIVASTAVA</span>
+                            </span>
                             <span className="text-[8px] font-black tracking-[0.4em] uppercase text-nobel-gold">Architecting Intelligence</span>
                         </div>
                     </div>
 
-                    <div className="hidden lg:flex items-center gap-12 text-[10px] font-black tracking-[0.35em] text-stone-400 uppercase">
+                    <div className={cn(
+                        "hidden lg:flex items-center gap-12 text-[10px] font-black tracking-[0.35em] uppercase transition-colors duration-500",
+                        scrolled && isLightSection ? "text-stone-500" : "text-stone-400"
+                    )}>
                         {['profile', 'expertise', 'experience', 'impact'].map((item) => (
                             <a
                                 key={item}
                                 href={`#${item}`}
                                 onClick={scrollToSection(item)}
-                                className="hover:text-white transition-all cursor-pointer relative overflow-hidden group py-1"
+                                className={cn(
+                                    "transition-all cursor-pointer relative overflow-hidden group py-1",
+                                    scrolled && isLightSection ? "hover:text-stone-950" : "hover:text-white"
+                                )}
                             >
                                 {item}
                                 <span className="absolute bottom-0 left-0 w-full h-[2px] bg-nobel-gold transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></span>
@@ -64,13 +109,26 @@ const Navbar = () => {
                         ))}
                         <a
                             href="mailto:rajat.sri.tech@gmail.com"
-                            className="ml-8 px-8 py-3.5 bg-white text-stone-950 rounded-full hover:bg-nobel-gold hover:text-white transition-all shadow-lg cursor-pointer hover:-translate-y-1 active:scale-95 font-bold tracking-[0.2em] text-[10px]"
+                            className={cn(
+                                "ml-8 px-8 py-3.5 rounded-full transition-all shadow-lg cursor-pointer hover:-translate-y-1 active:scale-95 font-bold tracking-[0.2em] text-[10px]",
+                                scrolled && isLightSection
+                                    ? "bg-stone-950 text-white hover:bg-nobel-gold"
+                                    : "bg-white text-stone-950 hover:bg-nobel-gold hover:text-white"
+                            )}
                         >
                             CONTACT RAJAT
                         </a>
                     </div>
 
-                    <button className="lg:hidden text-white p-3 bg-white/5 rounded-2xl border border-white/10" onClick={() => setMenuOpen(!menuOpen)}>
+                    <button
+                        className={cn(
+                            "lg:hidden p-3 rounded-2xl border transition-colors duration-500",
+                            scrolled && isLightSection
+                                ? "text-stone-950 bg-stone-100 border-stone-200/60"
+                                : "text-white bg-white/5 border-white/10"
+                        )}
+                        onClick={() => setMenuOpen(!menuOpen)}
+                    >
                         {menuOpen ? <X size={24} /> : <Menu size={24} />}
                     </button>
                 </div>

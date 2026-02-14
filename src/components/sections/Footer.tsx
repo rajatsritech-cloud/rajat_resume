@@ -33,7 +33,7 @@ const Footer = () => {
                     </div>
 
                     <span className="text-nobel-gold font-black text-[11px] tracking-[0.8em] uppercase mb-10 block">AVAILABLE FOR LEADERSHIP</span>
-                    <h2 className="font-sans text-3xl md:text-4xl font-semibold mb-12 leading-[1.1] tracking-tight text-white uppercase">Architecting <br />the Enterprise <br /><span className="text-stone-500 font-light">Era.</span></h2>
+                    <h2 className="font-sans text-4xl md:text-5xl font-semibold mb-12 leading-[1.1] tracking-tight text-white uppercase">Architecting <br />the Enterprise <br /><span className="text-stone-500 font-light">Era.</span></h2>
                     <div className="flex flex-col md:flex-row justify-center items-center gap-5">
                         <a href="mailto:rajat.sri.tech@gmail.com" className="px-10 py-5 bg-white text-stone-950 rounded-full font-bold text-[11px] tracking-[0.3em] uppercase hover:bg-nobel-gold hover:text-white transition-all shadow-lg flex items-center gap-4 group">
                             INITIATE HIRE <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
@@ -58,15 +58,15 @@ const Footer = () => {
                                         className="object-cover rounded-2xl border border-white/10"
                                     />
                                 </div>
-                                <span className="font-sans font-semibold text-lg tracking-tight text-white uppercase leading-none">RAJAT <br /><span className="text-stone-500 font-light">SRIVASTAVA</span></span>
+                                <span className="font-sans font-semibold text-xl tracking-tight text-white uppercase leading-none">RAJAT <br /><span className="text-stone-500 font-light">SRIVASTAVA</span></span>
                             </div>
-                            <p className="text-base font-light leading-relaxed max-w-xl mb-10 text-stone-400 font-sans">
+                            <p className="text-[17px] font-light leading-relaxed max-w-xl mb-10 text-stone-400 font-sans">
                                 &quot;Dedicated to driving technical excellence, mentoring world-class teams, and architecting scalable AI-first solutions.&quot;
                             </p>
                             <div className="flex gap-8">
-                                <a href="#" className="text-stone-600 hover:text-white transition-all transform hover:scale-110"><Linkedin size={20} /></a>
-                                <a href="#" className="text-stone-600 hover:text-white transition-all transform hover:scale-110"><Github size={20} /></a>
-                                <a href="mailto:rajat.sri.tech@gmail.com" className="text-stone-600 hover:text-white transition-all transform hover:scale-110"><Mail size={20} /></a>
+                                <a href="#" className="text-stone-600 hover:text-white transition-all transform hover:scale-110"><Linkedin size={22} /></a>
+                                <a href="#" className="text-stone-600 hover:text-white transition-all transform hover:scale-110"><Github size={22} /></a>
+                                <a href="mailto:rajat.sri.tech@gmail.com" className="text-stone-600 hover:text-white transition-all transform hover:scale-110"><Mail size={22} /></a>
                             </div>
                         </div>
                         <div className="md:col-span-2">
@@ -79,7 +79,7 @@ const Footer = () => {
                         </div>
                         <div className="md:col-span-4">
                             <h5 className="text-[11px] font-black tracking-[0.6em] uppercase text-stone-200 mb-6">Connections</h5>
-                            <div className="space-y-6 text-base font-light text-stone-300">
+                            <div className="space-y-6 text-[17px] font-light text-stone-300">
                                 <p className="flex items-center gap-5 group cursor-pointer transition-all hover:text-white"><MapPin size={18} className="text-nobel-gold group-hover:scale-110 transition-transform" /> Bengaluru, India</p>
                                 <p className="flex items-center gap-5 group cursor-pointer transition-all hover:text-white"><Mail size={18} className="text-nobel-gold group-hover:scale-110 transition-transform" /> rajat.sri.tech@gmail.com</p>
                                 <p className="flex items-center gap-5 group cursor-pointer transition-all hover:text-white"><Phone size={18} className="text-nobel-gold group-hover:scale-110 transition-transform" /> +91 9664258497</p>

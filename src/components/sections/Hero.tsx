@@ -25,25 +25,25 @@ const Hero = () => {
             </div>
             <div className="absolute inset-0 z-[1] bg-gradient-to-b from-stone-950 via-stone-950/10 to-stone-950" />
 
-            <div className="relative z-10 container mx-auto px-6 lg:px-16 flex flex-col lg:flex-row items-center justify-between gap-12">
+            <div className="relative z-10 container mx-auto px-6 lg:px-16 flex flex-col lg:flex-row items-center justify-between gap-14">
 
                 <div className="w-full lg:w-3/5 text-center lg:text-left">
                     <motion.div
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 1 }}
-                        className="inline-flex items-center gap-4 mb-6 px-6 py-2.5 border border-white/10 text-nobel-gold text-[11px] font-black tracking-[0.5em] uppercase rounded-full backdrop-blur-3xl bg-white/5 shadow-lg cursor-pointer"
+                        className="inline-flex items-center gap-4 mb-8 px-7 py-3 border border-white/10 text-nobel-gold text-[11px] font-black tracking-[0.5em] uppercase rounded-full backdrop-blur-3xl bg-white/5 shadow-lg cursor-pointer"
                     >
                         <Zap size={16} className="text-nobel-gold animate-pulse" />
                         Senior Full-Stack Architect
                     </motion.div>
 
-                    <div className="flex flex-col md:flex-row items-center lg:items-end gap-8 mb-8">
+                    <div className="flex flex-col md:flex-row items-center lg:items-end gap-10 mb-10">
                         <motion.div
                             initial={{ opacity: 0, scale: 0.8 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 1.2, delay: 0.2 }}
-                            className="relative w-40 h-40 md:w-52 md:h-52 shrink-0 shadow-2xl group"
+                            className="relative w-48 h-48 md:w-56 md:h-56 shrink-0 shadow-2xl group"
                         >
                             <div className="absolute inset-0 bg-nobel-gold/15 rounded-2xl blur-2xl group-hover:bg-nobel-gold/25 transition-all duration-1000"></div>
                             <Image
@@ -58,10 +58,10 @@ const Hero = () => {
                             initial={{ opacity: 0, y: 50 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 1.2, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                            className="font-sans text-4xl md:text-5xl font-semibold leading-[0.9] mb-0 text-white tracking-tight text-center md:text-left"
+                            className="font-sans text-5xl md:text-6xl font-semibold leading-[0.9] mb-0 text-white tracking-tight text-center md:text-left"
                         >
                             Rajat <br />
-                            <span className="text-stone-500 font-light text-3xl md:text-4xl">Srivastava</span>
+                            <span className="text-stone-500 font-light text-4xl md:text-5xl">Srivastava</span>
                         </motion.h1>
                     </div>
 
@@ -71,7 +71,7 @@ const Hero = () => {
                         transition={{ duration: 1, delay: 0.8 }}
                         className="flex flex-wrap justify-center lg:justify-start gap-8 items-center"
                     >
-                        <a href="#experience" onClick={scrollToSection('experience')} className="px-8 py-4 bg-nobel-gold text-white rounded-full font-bold text-[11px] tracking-[0.3em] uppercase hover:bg-white hover:text-stone-950 transition-all shadow-[0_16px_32px_-8px_rgba(197,160,89,0.3)] hover:-translate-y-1 flex items-center gap-3">
+                        <a href="#experience" onClick={scrollToSection('experience')} className="px-10 py-5 bg-nobel-gold text-white rounded-full font-bold text-[11px] tracking-[0.3em] uppercase hover:bg-white hover:text-stone-950 transition-all shadow-[0_16px_32px_-8px_rgba(197,160,89,0.3)] hover:-translate-y-1 flex items-center gap-3">
                             VIEW WORK <ChevronRight size={18} />
                         </a>
                         <div className="flex gap-8">
@@ -87,7 +87,7 @@ const Hero = () => {
                     transition={{ duration: 1.2, delay: 1 }}
                     className="w-full lg:w-[38%] max-w-xl cursor-pointer"
                 >
-                    <div className="p-8 lg:p-10 bg-white/[0.03] backdrop-blur-3xl rounded-2xl border border-white/10 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.6)] relative overflow-hidden group">
+                    <div className="p-10 lg:p-12 bg-white/[0.03] backdrop-blur-3xl rounded-2xl border border-white/10 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.6)] relative overflow-hidden group">
                         <div className="absolute top-0 right-0 w-56 h-56 bg-nobel-gold/10 rounded-full blur-[90px] -mr-28 -mt-28 group-hover:scale-150 transition-transform duration-[2000ms]"></div>
 
                         <h3 className="font-sans text-xl font-semibold text-white mb-6 flex items-center gap-4">
@@ -95,7 +95,7 @@ const Hero = () => {
                             Profile Summary
                         </h3>
 
-                        <div className="space-y-6 text-stone-400 font-light leading-relaxed text-base">
+                        <div className="space-y-6 text-stone-400 font-light leading-relaxed text-[17px]">
                             <p>
                                 <span className="text-white font-semibold">7+ Years</span> experience building large-scale, distributed systems and high-performance Generative AI integrations.
                             </p>

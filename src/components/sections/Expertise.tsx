@@ -71,7 +71,7 @@ const Expertise = () => {
     if (!mounted) return <div className="py-24 bg-stone-950 min-h-screen" />;
 
     return (
-        <section id="expertise" className="py-16 bg-stone-950 text-white relative overflow-hidden border-b border-white/5">
+        <section id="expertise" className="py-20 bg-stone-950 text-white relative overflow-hidden border-b border-white/5">
             {/* Subtle Atmosphere */}
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none opacity-25">
                 <div className="absolute top-[-5%] left-[-5%] w-[35%] h-[35%] bg-nobel-gold/5 rounded-full blur-[140px]"></div>
@@ -82,11 +82,11 @@ const Expertise = () => {
                 {/* 0. Header Narrative */}
                 <div className="max-w-4xl mb-16">
                     <span className="text-nobel-gold font-black text-[11px] tracking-[0.8em] uppercase mb-6 block">04 / CORE EXPERTISE</span>
-                    <h2 className="font-sans text-3xl md:text-4xl text-white font-semibold leading-[1.1] tracking-tight mb-8 uppercase">
+                    <h2 className="font-sans text-4xl md:text-5xl text-white font-semibold leading-[1.1] tracking-tight mb-8 uppercase">
                         The Modern <br />
                         <span className="font-light text-stone-500">Stack & Ecosystem.</span>
                     </h2>
-                    <p className="text-lg text-stone-400 font-light leading-relaxed max-w-2xl">
+                    <p className="text-[17px] text-stone-400 font-light leading-relaxed max-w-2xl">
                         A clean architecture approach where distributed backends meet elite infrastructure performance.
                     </p>
                 </div>
@@ -115,7 +115,7 @@ const Expertise = () => {
                     initial={{ opacity: 0, scale: 0.98 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
-                    className="mb-20 p-8 lg:p-10 bg-white/[0.02] border border-nobel-gold/30 rounded-3xl relative overflow-hidden group hover:border-nobel-gold transition-all duration-700 shadow-xl cursor-pointer"
+                    className="mb-20 p-10 lg:p-12 bg-white/[0.02] border border-nobel-gold/30 rounded-3xl relative overflow-hidden group hover:border-nobel-gold transition-all duration-700 shadow-xl cursor-pointer"
                 >
                     <div className="absolute top-0 right-0 w-80 h-80 bg-nobel-gold/10 rounded-full blur-[100px] -mr-40 -mt-40 group-hover:bg-nobel-gold/20 transition-all"></div>
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
@@ -123,8 +123,8 @@ const Expertise = () => {
                             <div className="inline-flex items-center gap-3 px-5 py-2 bg-nobel-gold/10 border border-nobel-gold/20 rounded-full text-[10px] font-black tracking-[0.3em] text-nobel-gold uppercase mb-6">
                                 <Cloud size={14} /> Cloud Infrastructure Excellence
                             </div>
-                            <h3 className="font-sans text-2xl md:text-3xl text-white font-semibold mb-6 uppercase leading-[0.95] tracking-tight">Infra <br /><span className="text-stone-500 font-light">Azure / Cloud</span></h3>
-                            <p className="text-lg text-stone-300 font-light leading-snug">
+                            <h3 className="font-sans text-3xl md:text-4xl text-white font-semibold mb-6 uppercase leading-[0.95] tracking-tight">Infra <br /><span className="text-stone-500 font-light">Azure / Cloud</span></h3>
+                            <p className="text-[17px] text-stone-300 font-light leading-snug">
                                 Azure AI Search, Vector DBs, and secure container orchestration for <span className="text-nobel-gold font-semibold underline underline-offset-[12px] decoration-nobel-gold/30">Fortune 500 delivery.</span>
                             </p>
                         </div>
