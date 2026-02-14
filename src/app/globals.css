@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #FDFDFB;
+  --foreground: #0c0a09;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-nobel-gold selection:text-white;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
