@@ -12,7 +12,8 @@ const Profile = () => {
 
             <div className="container mx-auto px-6 lg:px-20 relative z-10">
                 <div className="flex flex-col lg:flex-row gap-16 items-start">
-                    <div className="lg:w-[35%] lg:sticky lg:top-32">
+                    {/* Left Column: Label + Heading + Contact Cards */}
+                    <div className="lg:w-[35%]">
                         <span className="text-nobel-gold font-black text-[11px] tracking-[0.8em] uppercase mb-6 block">01 / ARCHITECTURE</span>
                         <h2 className="font-sans text-4xl md:text-5xl font-semibold mb-8 text-stone-950 leading-[1.1] tracking-tight uppercase">Engineered <br /><span className="font-light text-stone-400">Excellence.</span></h2>
                         <div className="space-y-6 w-full max-w-lg">
@@ -34,6 +35,8 @@ const Profile = () => {
                             ))}
                         </div>
                     </div>
+
+                    {/* Right Column: Intro + Feature Cards */}
                     <div className="lg:w-[65%]">
                         <div className="space-y-12">
                             <p className="text-2xl md:text-3xl text-stone-950 font-sans font-medium leading-[1.4] tracking-tight max-w-3xl">
@@ -42,7 +45,6 @@ const Profile = () => {
 
                             <div className="h-px w-full bg-stone-200/50"></div>
 
-                            {/* Restored Horizontal Layout (grid-cols-2) while maintaining wide presence */}
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                 {[
                                     { icon: <Target size={24} />, title: "Tech Lead Vision", desc: "Seeking to drive technical excellence and architect scalable solutions leveraging distributed systems and cloud-native AI." },
