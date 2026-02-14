@@ -45,7 +45,7 @@ const Navbar = () => {
                             />
                         </div>
                         <div className="flex flex-col">
-                            <span className="font-serif font-bold text-xl tracking-tight text-white leading-none mb-1 uppercase">RAJAT <span className="text-stone-500 font-normal italic">SRIVASTAVA</span></span>
+                            <span className="font-sans font-semibold text-base tracking-tight text-white leading-none mb-1 uppercase">RAJAT <span className="text-stone-500 font-light">SRIVASTAVA</span></span>
                             <span className="text-[8px] font-black tracking-[0.4em] uppercase text-nobel-gold">Architecting Intelligence</span>
                         </div>
                     </div>
@@ -64,7 +64,7 @@ const Navbar = () => {
                         ))}
                         <a
                             href="mailto:rajat.sri.tech@gmail.com"
-                            className="ml-8 px-10 py-4 bg-white text-stone-950 rounded-full hover:bg-nobel-gold hover:text-white transition-all shadow-2xl cursor-pointer hover:-translate-y-1 active:scale-95 font-black tracking-[0.2em] text-[10px]"
+                            className="ml-8 px-8 py-3.5 bg-white text-stone-950 rounded-full hover:bg-nobel-gold hover:text-white transition-all shadow-lg cursor-pointer hover:-translate-y-1 active:scale-95 font-bold tracking-[0.2em] text-[10px]"
                         >
                             CONTACT RAJAT
                         </a>
@@ -88,7 +88,7 @@ const Navbar = () => {
                         <div className="flex justify-end mb-16">
                             <button onClick={() => setMenuOpen(false)} className="p-5 bg-white/5 rounded-full border border-white/10"><X size={32} /></button>
                         </div>
-                        <div className="flex flex-col gap-12 text-6xl font-serif">
+                        <div className="flex flex-col gap-10 text-3xl font-sans font-semibold">
                             {['profile', 'expertise', 'experience', 'impact'].map(item => (
                                 <a key={item} href={`#${item}`} onClick={scrollToSection(item)} className="hover:text-nobel-gold transition-colors uppercase tracking-tighter">{item}</a>
                             ))}

@@ -132,7 +132,7 @@ export const TechStackDiagram: React.FC = () => {
                         transition={{ duration: 0.3 }}
                     >
                         <h5 className="text-nobel-gold font-black text-[10px] tracking-[0.3em] uppercase mb-4">{tech[activeTab].type}</h5>
-                        <h4 className="text-white font-serif text-2xl mb-4 font-bold">{tech[activeTab].name}</h4>
+                        <h4 className="text-white font-sans text-lg mb-3 font-semibold">{tech[activeTab].name}</h4>
                         <p className="text-stone-400 text-sm leading-relaxed font-light">{tech[activeTab].desc}</p>
                     </motion.div>
                 </AnimatePresence>
@@ -166,7 +166,7 @@ export const EngineeringFlowDiagram: React.FC = () => {
                     <div className="w-12 h-12 bg-nobel-gold/10 rounded-xl flex items-center justify-center text-nobel-gold mb-6 group-hover:scale-110 transition-transform">
                         {step.icon}
                     </div>
-                    <h4 className="text-white font-serif text-xl mb-2">{step.title}</h4>
+                    <h4 className="text-white font-sans text-xl font-semibold mb-2">{step.title}</h4>
                     <span className="text-[10px] font-black tracking-[0.2em] text-stone-500 uppercase">{step.status}</span>
 
                     {idx < steps.length - 1 && (
@@ -197,7 +197,7 @@ export const EngineeringImpactDiagram: React.FC<{ dark?: boolean }> = ({ dark = 
                     <div>
                         <span className="text-nobel-gold font-black text-[9px] tracking-[0.4em] uppercase mb-4 block underline underline-offset-8">Metrics Visualization</span>
                         <h3 className={cn(
-                            "font-serif text-4xl font-bold tracking-tight mb-2",
+                            "font-sans text-2xl font-semibold tracking-tight mb-2",
                             dark ? "text-white" : "text-stone-950"
                         )}>Technical Velocity</h3>
                         <p className={cn(
@@ -232,15 +232,15 @@ export const EngineeringImpactDiagram: React.FC<{ dark?: boolean }> = ({ dark = 
             <div className={cn("grid grid-cols-3 gap-8 pt-8 border-t mt-6 relative z-10", dark ? "border-white/5" : "border-stone-200/60")}>
                 <div>
                     <span className="text-[9px] font-black text-stone-500 tracking-widest uppercase mb-2 block">Efficiency</span>
-                    <span className={cn("font-serif text-xl font-bold", dark ? "text-white" : "text-stone-950")}>+85%</span>
+                    <span className={cn("font-sans text-xl font-bold", dark ? "text-white" : "text-stone-950")}>+85%</span>
                 </div>
                 <div>
                     <span className="text-[9px] font-black text-stone-500 tracking-widest uppercase mb-2 block">Stability</span>
-                    <span className={cn("font-serif text-xl font-bold", dark ? "text-white" : "text-stone-950")}>99.9%</span>
+                    <span className={cn("font-sans text-xl font-bold", dark ? "text-white" : "text-stone-950")}>99.9%</span>
                 </div>
                 <div>
                     <span className="text-[9px] font-black text-stone-500 tracking-widest uppercase mb-2 block">Deployment</span>
-                    <span className={cn("font-serif text-xl font-bold", dark ? "text-white" : "text-stone-950")}>Weekly</span>
+                    <span className={cn("font-sans text-xl font-bold", dark ? "text-white" : "text-stone-950")}>Weekly</span>
                 </div>
             </div>
         </div>
