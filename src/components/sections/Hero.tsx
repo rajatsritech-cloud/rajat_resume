@@ -35,7 +35,7 @@ const Hero = () => {
                         className="inline-flex items-center gap-4 mb-8 px-7 py-3 border border-white/10 text-nobel-gold text-[11px] font-black tracking-[0.5em] uppercase rounded-full backdrop-blur-3xl bg-white/5 shadow-lg cursor-pointer"
                     >
                         <Zap size={16} className="text-nobel-gold animate-pulse" />
-                        Senior Full-Stack Architect
+                        Senior Full-Stack Engineer
                     </motion.div>
 
                     <div className="flex flex-col md:flex-row items-center lg:items-end gap-10 mb-10">
@@ -100,7 +100,7 @@ const Hero = () => {
                                 <span className="text-white font-semibold">7+ Years</span> experience building large-scale, distributed systems and high-performance Generative AI integrations.
                             </p>
                             <p>
-                                Specialized in <span className="text-nobel-gold font-semibold">React, Python, and Azure</span>, driving 80%+ automation for critical enterprise workflows.
+                                Specialized in <span className="text-nobel-gold font-semibold">React, Node, Python, and Azure</span>, driving 80%+ automation for critical enterprise workflows.
                             </p>
 
                         </div>
