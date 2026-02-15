@@ -26,22 +26,23 @@ const Expertise = () => {
 
     const ecosystemData = [
         [
-            {
-                title: "Backend",
-                items: [
-                    { name: "Node.js", years: "8Y" },
-                    { name: "TypeScript", years: "7Y" },
-                    { name: "Java / Spring", years: "8Y" },
-                    { name: "Python / Flask", years: "6Y" }
-                ]
-            },
+
             {
                 title: "Frontend",
                 items: [
-                    { name: "React / Next.js", years: "6Y" },
-                    { name: "Tailwind CSS", years: "1Y" },
-                    { name: "Angular", years: "3Y" },
+                    { name: "React / Next.js", years: "7Y" },
+                    { name: "Tailwind CSS", years: "7Y" },
+                    { name: "Angular", years: "2Y" },
                     { name: "Astro", years: "1Y" }
+                ]
+            },
+            {
+                title: "Backend",
+                items: [
+                    { name: "Node.js", years: "6Y" },
+                    { name: "TypeScript", years: "6Y" },
+                    { name: "Java", years: "2Y" },
+                    { name: "Python", years: "4Y" }
                 ]
             }
         ],
@@ -49,19 +50,19 @@ const Expertise = () => {
             {
                 title: "Data",
                 items: [
-                    { name: "NoSQL", years: "6Y" },
+                    { name: "NoSQL", years: "5Y" },
                     { name: "PostgreSQL", years: "5Y" },
-                    { name: "MySQL / MongoDB", years: "6Y" },
-                    { name: "Redis", years: "8Y" }
+                    { name: "MySQL", years: "5Y" },
+                    { name: "Redis", years: "5Y" }
                 ]
             },
             {
                 title: "Infra",
                 items: [
-                    { name: "Azure Service Bus", years: "4Y" },
-                    { name: "Event Hubs", years: "3Y" },
+                    { name: "Azure", years: "7Y" },
+                    { name: "Service Bus & Event Hubs", years: "5Y" },
                     { name: "Container Apps", years: "3Y" },
-                    { name: "OpenAI / Datadog", years: "EXP" }
+                    { name: "OpenAI / OCI / Datadog", years: "3" }
                 ]
             }
         ]
