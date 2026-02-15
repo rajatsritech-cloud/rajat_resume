@@ -71,6 +71,10 @@ export const TechStackDiagram: React.FC = () => {
 
     useEffect(() => {
         setMounted(true);
+        const interval = setInterval(() => {
+            setActiveTab((prev) => (prev + 1) % 5);
+        }, 1000);
+        return () => clearInterval(interval);
     }, []);
 
     if (!mounted) return <div className="h-[600px] w-full bg-stone-900/40 rounded-[4rem]" />;
@@ -78,7 +82,7 @@ export const TechStackDiagram: React.FC = () => {
     const tech = [
         { id: 0, name: 'React 18 / Next.js', type: 'Frontend', icon: <Layout size={24} />, color: 'bg-blue-600', desc: 'Expertise in modern UI architecture, performance optimization, and high-performance financial dashboards.' },
         { id: 1, name: 'Python / FastAPI', type: 'Backend', icon: <Terminal size={24} />, color: 'bg-green-700', desc: 'Building secure, async microservices for orchestration, classification, and estimation pipelines.' },
-        { id: 2, name: 'Azure / Cloud', type: 'Infra', icon: <Database size={24} />, color: 'bg-sky-700', desc: 'Azure AI Search, Vector DBs, and secure container orchestration for Fortune 500 delivery.' },
+        { id: 2, name: 'Azure / Cloud', type: 'Infra', icon: <Database size={24} />, color: 'bg-sky-700', desc: 'Azure AI Search, Vector DBs, and secure container orchestration for Financial Enterprise delivery.' },
         { id: 3, name: 'Node.js / TypeScript', type: 'Runtime', icon: <Server size={24} />, color: 'bg-emerald-600', desc: 'Scalable service delivery and high-concurrency event-driven architectures with <1% defect rates.' },
         { id: 4, name: 'Generative AI', type: 'AI', icon: <Cpu size={24} />, color: 'bg-amber-600', desc: 'Agentic AI modernization workflows, LLM integration, and hybrid search optimization.' },
     ];

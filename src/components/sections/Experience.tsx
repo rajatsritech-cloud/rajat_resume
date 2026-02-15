@@ -65,7 +65,6 @@ const Experience = () => {
                         points={[
                             "Built a distributed microservices platform for automated tax workpaper generation, supporting concurrent users and driving 80%+ automation.",
                             "Optimized critical Excel workflows using streaming OpenXML processing, slashing latency from 40m to <3m.",
-                            "Led Proof of Concept for major airline legacy system modernization using Agentic AI (CrewAI) and Python.",
                             "Architected 4 production-grade services (orchestration, classification, estimation, Excel processing) with Python/FastAPI and .NET 8.",
                             "Spearheaded Frontend Architecture Modernization using React 18, integrating PwC AppKit for enterprise UI standards.",
                             "Developed 'First-of-its-Kind' Global Delivery Tool on Power Platform (Power Pages & Automate) for high-visibility engagements.",

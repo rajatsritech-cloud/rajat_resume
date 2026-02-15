@@ -164,7 +164,7 @@ const Profile = () => {
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8" style={{ perspective: '1000px' }}>
                                 {[
                                     { icon: <Target size={24} />, title: "Tech Lead Vision", desc: "Seeking to drive technical excellence and architect scalable solutions leveraging distributed systems and cloud-native AI." },
-                                    { icon: <Star size={24} />, title: "PwC Leadership", desc: "Leading critical modernization initiatives from legacy COBOL to modern Java stacks using Agentic AI workflows." }
+                                    { icon: <Star size={24} />, title: "Modernization Lead", desc: "Leading enterprise modernization via intelligent automation and AI enablement. Driving cloud-native architectures to enhance operational efficiency and business agility." }
                                 ].map((feature, i) => (
                                     <motion.div
                                         key={i}

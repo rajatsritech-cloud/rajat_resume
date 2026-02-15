@@ -62,16 +62,13 @@ const Navbar = () => {
             )}>
                 <div className="container mx-auto px-6 lg:px-16 flex justify-between items-center">
                     <div className="flex items-center gap-5 cursor-pointer group" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-                        <div className="relative w-12 h-12 group-hover:scale-105 transition-all duration-500 shadow-[0_10px_30px_rgba(255,255,255,0.1)]">
+                        <div className="relative w-12 h-12 rounded-2xl group-hover:scale-105 transition-all duration-500 shadow-[0_10px_30px_rgba(255,255,255,0.1)]">
                             <Image
                                 src="/rajat_avatar.webp"
                                 alt="Rajat Srivastava"
                                 fill
                                 className={cn(
-                                    "object-cover rounded-2xl transition-all rotate-3 group-hover:rotate-0",
-                                    scrolled && isLightSection
-                                        ? "border border-stone-200/60 group-hover:border-nobel-gold/50"
-                                        : "border border-white/10 group-hover:border-nobel-gold/50"
+                                    "object-cover rounded-2xl transition-all rotate-3 group-hover:rotate-0"
                                 )}
                             />
                         </div>

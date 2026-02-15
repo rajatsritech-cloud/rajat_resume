@@ -32,8 +32,7 @@ const Expertise = () => {
                     { name: "Node.js", years: "8Y" },
                     { name: "TypeScript", years: "7Y" },
                     { name: "Java / Spring", years: "8Y" },
-                    { name: "Python / Flask", years: "6Y" },
-                    { name: "Golang", years: "2Y" }
+                    { name: "Python / Flask", years: "6Y" }
                 ]
             },
             {
@@ -41,7 +40,7 @@ const Expertise = () => {
                 items: [
                     { name: "React / Next.js", years: "6Y" },
                     { name: "Tailwind CSS", years: "1Y" },
-                    { name: "Jekyll", years: "5Y" },
+                    { name: "Angular", years: "3Y" },
                     { name: "Astro", years: "1Y" }
                 ]
             }
@@ -50,18 +49,18 @@ const Expertise = () => {
             {
                 title: "Data",
                 items: [
+                    { name: "NoSQL", years: "6Y" },
+                    { name: "PostgreSQL", years: "5Y" },
                     { name: "MySQL / MongoDB", years: "6Y" },
-                    { name: "Redis", years: "8Y" },
-                    { name: "Cassandra", years: "3Y" },
-                    { name: "Prometheus", years: "2Y" }
+                    { name: "Redis", years: "8Y" }
                 ]
             },
             {
                 title: "Infra",
                 items: [
-                    { name: "Apache Kafka", years: "7Y" },
-                    { name: "Apache Spark", years: "5Y" },
-                    { name: "RabbitMQ", years: "5Y" },
+                    { name: "Azure Service Bus", years: "4Y" },
+                    { name: "Event Hubs", years: "3Y" },
+                    { name: "Container Apps", years: "3Y" },
                     { name: "OpenAI / Datadog", years: "EXP" }
                 ]
             }
@@ -125,7 +124,7 @@ const Expertise = () => {
                             </div>
                             <h3 className="font-sans text-3xl md:text-4xl text-white font-semibold mb-6 uppercase leading-[0.95] tracking-tight">Infra <br /><span className="text-stone-500 font-light">Azure / Cloud</span></h3>
                             <p className="text-[17px] text-stone-300 font-light leading-snug">
-                                Azure AI Search, Vector DBs, and secure container orchestration for <span className="text-nobel-gold font-semibold underline underline-offset-[12px] decoration-nobel-gold/30">Fortune 500 delivery.</span>
+                                Azure AI Search, Vector DBs, and secure <span className="text-nobel-gold font-semibold underline underline-offset-[12px] decoration-nobel-gold/30">Financial Enterprise delivery.</span>
                             </p>
                         </div>
                         <div className="lg:col-span-5 flex flex-col items-center">
