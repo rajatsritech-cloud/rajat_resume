@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Zap, ChevronRight, Linkedin, Github } from 'lucide-react';
+import { Zap, ChevronRight, Linkedin, Github, Globe } from 'lucide-react';
 import Image from 'next/image';
 import { HeroScene } from "@/components/visualizations/QuantumScene";
 
@@ -75,8 +75,9 @@ const Hero = () => {
                             VIEW WORK <ChevronRight size={18} />
                         </a>
                         <div className="flex gap-8">
-                            <a href="#" className="text-stone-500 hover:text-white transition-all transform hover:scale-110"><Linkedin size={22} /></a>
-                            <a href="#" className="text-stone-500 hover:text-white transition-all transform hover:scale-110"><Github size={22} /></a>
+                            <a href="https://www.linkedin.com/in/rajat-srivastava-dev/" target="_blank" rel="noopener noreferrer" className="text-stone-500 hover:text-white transition-all transform hover:scale-110"><Linkedin size={22} /></a>
+                            <a href="https://github.com/rajatsritech-cloud" target="_blank" rel="noopener noreferrer" className="text-stone-500 hover:text-white transition-all transform hover:scale-110"><Github size={22} /></a>
+                            <a href="http://statementextract.com/" target="_blank" rel="noopener noreferrer" className="text-stone-500 hover:text-white transition-all transform hover:scale-110"><Globe size={22} /></a>
                         </div>
                     </motion.div>
                 </div>

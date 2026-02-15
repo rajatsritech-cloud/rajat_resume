@@ -1,10 +1,13 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Mail, Target, Star } from 'lucide-react';
+import EmailModal from "@/components/ui/EmailModal";
 
 const Profile = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
     return (
         <section
             id="profile"
@@ -14,6 +17,8 @@ const Profile = () => {
                 background: 'radial-gradient(ellipse 120% 80% at 50% 0%, #ffffff 0%, #f7f5f2 40%, #edeae6 100%)',
             }}
         >
+            <EmailModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+
             {/* ── Flowing SVG Background Shapes ── */}
             <svg
                 className="absolute inset-0 w-full h-full pointer-events-none"
@@ -107,7 +112,7 @@ const Profile = () => {
                         <div className="space-y-6 w-full max-w-lg" style={{ perspective: '900px' }}>
                             {[
                                 { icon: <MapPin size={24} />, label: "Base", value: "Bengaluru, India" },
-                                { icon: <Mail size={24} />, label: "Direct", value: "rajat.sri.tech@gmail.com" }
+                                { icon: <Mail size={24} />, label: "Direct", value: <button onClick={() => setIsModalOpen(true)} className="hover:text-nobel-gold transition-colors text-left">rajat.sri.tech@gmail.com</button> }
                             ].map((item, i) => (
                                 <motion.div
                                     key={i}

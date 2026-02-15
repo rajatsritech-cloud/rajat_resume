@@ -1,12 +1,15 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Linkedin, Github, Mail, MapPin, Phone, ChevronRight } from 'lucide-react';
+import { Linkedin, Github, Mail, MapPin, Phone, ChevronRight, Globe } from 'lucide-react';
 import Image from 'next/image';
 import { CloudSystemScene } from "@/components/visualizations/QuantumScene";
+import EmailModal from "@/components/ui/EmailModal";
 
 const Footer = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
     const scrollToSection = (id: string) => (e: React.MouseEvent) => {
         e.preventDefault();
         const element = document.getElementById(id);
@@ -20,6 +23,8 @@ const Footer = () => {
 
     return (
         <footer className="relative bg-stone-950 pt-32 overflow-hidden">
+            <EmailModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+
             {/* CTA Section Integrated into Footer Top */}
             <div className="text-center relative z-20 pb-24 px-6">
                 <motion.div
@@ -35,11 +40,11 @@ const Footer = () => {
                     <span className="text-nobel-gold font-black text-[11px] tracking-[0.8em] uppercase mb-10 block">AVAILABLE FOR LEADERSHIP</span>
                     <h2 className="font-sans text-4xl md:text-5xl font-semibold mb-12 leading-[1.1] tracking-tight text-white uppercase">Architecting <br />the Enterprise <br /><span className="text-stone-500 font-light">Era.</span></h2>
                     <div className="flex flex-col md:flex-row justify-center items-center gap-5">
-                        <a href="mailto:rajat.sri.tech@gmail.com" className="px-10 py-5 bg-white text-stone-950 rounded-full font-bold text-[11px] tracking-[0.3em] uppercase hover:bg-nobel-gold hover:text-white transition-all shadow-lg flex items-center gap-4 group">
+                        <button onClick={() => setIsModalOpen(true)} className="px-10 py-5 bg-white text-stone-950 rounded-full font-bold text-[11px] tracking-[0.3em] uppercase hover:bg-nobel-gold hover:text-white transition-all shadow-lg flex items-center gap-4 group">
                             INITIATE HIRE <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
-                        </a>
-                        <a href="#" className="px-8 py-5 border border-white/20 hover:border-nobel-gold/50 rounded-full font-bold text-[11px] tracking-[0.3em] uppercase transition-all backdrop-blur-3xl text-white">
-                            DOWNLOAD DOSSIER
+                        </button>
+                        <a href="/rajatsrivastava_resume.pdf" download className="px-8 py-5 border border-white/20 hover:border-nobel-gold/50 rounded-full font-bold text-[11px] tracking-[0.3em] uppercase transition-all backdrop-blur-3xl text-white">
+                            DOWNLOAD RESUME
                         </a>
                     </div>
                 </motion.div>
@@ -64,9 +69,10 @@ const Footer = () => {
                                 &quot;Dedicated to driving technical excellence, mentoring world-class teams, and architecting scalable AI-first solutions.&quot;
                             </p>
                             <div className="flex gap-8">
-                                <a href="#" className="text-stone-600 hover:text-white transition-all transform hover:scale-110"><Linkedin size={22} /></a>
-                                <a href="#" className="text-stone-600 hover:text-white transition-all transform hover:scale-110"><Github size={22} /></a>
-                                <a href="mailto:rajat.sri.tech@gmail.com" className="text-stone-600 hover:text-white transition-all transform hover:scale-110"><Mail size={22} /></a>
+                                <a href="https://www.linkedin.com/in/rajat-srivastava-dev/" target="_blank" rel="noopener noreferrer" className="text-stone-600 hover:text-white transition-all transform hover:scale-110"><Linkedin size={22} /></a>
+                                <a href="https://github.com/rajatsritech-cloud" target="_blank" rel="noopener noreferrer" className="text-stone-600 hover:text-white transition-all transform hover:scale-110"><Github size={22} /></a>
+                                <a href="http://statementextract.com/" target="_blank" rel="noopener noreferrer" className="text-stone-600 hover:text-white transition-all transform hover:scale-110"><Globe size={22} /></a>
+                                <button onClick={() => setIsModalOpen(true)} className="text-stone-600 hover:text-white transition-all transform hover:scale-110"><Mail size={22} /></button>
                             </div>
                         </div>
                         <div className="md:col-span-2">
@@ -81,7 +87,7 @@ const Footer = () => {
                             <h5 className="text-[11px] font-black tracking-[0.6em] uppercase text-stone-200 mb-6">Connections</h5>
                             <div className="space-y-6 text-[17px] font-light text-stone-300">
                                 <p className="flex items-center gap-5 group cursor-pointer transition-all hover:text-white"><MapPin size={18} className="text-nobel-gold group-hover:scale-110 transition-transform" /> Bengaluru, India</p>
-                                <p className="flex items-center gap-5 group cursor-pointer transition-all hover:text-white"><Mail size={18} className="text-nobel-gold group-hover:scale-110 transition-transform" /> rajat.sri.tech@gmail.com</p>
+                                <button onClick={() => setIsModalOpen(true)} className="flex items-center gap-5 group cursor-pointer transition-all hover:text-white"><Mail size={18} className="text-nobel-gold group-hover:scale-110 transition-transform" /> rajat.sri.tech@gmail.com</button>
                                 <p className="flex items-center gap-5 group cursor-pointer transition-all hover:text-white"><Phone size={18} className="text-nobel-gold group-hover:scale-110 transition-transform" /> +91 9664258497</p>
                             </div>
                         </div>

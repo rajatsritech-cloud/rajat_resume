@@ -105,7 +105,7 @@ const Navbar = () => {
                             </a>
                         ))}
                         <a
-                            href="mailto:rajat.sri.tech@gmail.com"
+                            href="mailto:rajat.sri.tech@gmail.com?subject=Opportunity"
                             className={cn(
                                 "ml-8 px-8 py-3.5 rounded-full transition-all shadow-lg cursor-pointer hover:-translate-y-1 active:scale-95 font-bold tracking-[0.2em] text-[10px]",
                                 scrolled && isLightSection

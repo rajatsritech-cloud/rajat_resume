@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     },
     description: "Senior Full-Stack Software Engineer specializing in large-scale systems, Enterprise Modernization, and Agentic AI. Expert in Azure, React, Node.js, and Cloud-Native Architectures.",
     keywords: ["Rajat Srivastava", "Senior Full-Stack Engineer", "AI Architect", "Enterprise Modernization", "Agentic AI", "Azure", "React", "Node.js", "System Design", "Cloud Native"],
-    authors: [{ name: "Rajat Srivastava", url: "https://www.linkedin.com/in/rajat-srivastava" }], // Replace with actual LinkedIn if known, or generic
+    authors: [{ name: "Rajat Srivastava", url: "https://www.linkedin.com/in/rajat-srivastava-dev/" }], // Replace with actual LinkedIn if known, or generic
     creator: "Rajat Srivastava",
     openGraph: {
         type: "website",
