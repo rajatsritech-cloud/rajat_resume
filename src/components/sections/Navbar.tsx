@@ -4,43 +4,22 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
-import { cn } from "@/lib/utils";
 
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
-    const [menuOpen, setMenuOpen] = useState(false);
-    const [isLightSection, setIsLightSection] = useState(false);
+    const [mobileOpen, setMobileOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
             setScrolled(window.scrollY > 50);
-
-            // Detect if navbar is over a light or dark section
-            const navHeight = 80;
-            const checkPoint = navHeight / 2;
-            const el = document.elementFromPoint(window.innerWidth / 2, checkPoint);
-            if (el) {
-                const section = el.closest('section, header, footer');
-                if (section) {
-                    const bg = getComputedStyle(section).backgroundColor;
-                    // Parse RGB and check luminance — light sections have high luminance
-                    const match = bg.match(/\d+/g);
-                    if (match && match.length >= 3) {
-                        const [r, g, b] = match.map(Number);
-                        const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
-                        setIsLightSection(luminance > 0.6);
-                    }
-                }
-            }
         };
-
         window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
     const scrollToSection = (id: string) => (e: React.MouseEvent) => {
         e.preventDefault();
-        setMenuOpen(false);
+        setMobileOpen(false);
         const element = document.getElementById(id);
         if (element) {
             const headerOffset = 90;
@@ -50,108 +29,94 @@ const Navbar = () => {
         }
     };
 
+    const navItems = ['Profile', 'Experience', 'Impact', 'Expertise', 'Education'];
+
     return (
-        <>
-            <nav className={cn(
-                "fixed top-0 left-0 right-0 z-[100] transition-all duration-700",
-                scrolled
-                    ? isLightSection
-                        ? "bg-white/95 backdrop-blur-2xl shadow-lg py-4 border-b border-stone-200/60"
-                        : "bg-stone-950/98 backdrop-blur-2xl shadow-2xl py-4 border-b border-white/5"
-                    : "bg-transparent py-8"
-            )}>
-                <div className="container mx-auto px-6 lg:px-16 flex justify-between items-center">
-                    <div className="flex items-center gap-5 cursor-pointer group" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-                        <div className="relative w-12 h-12 rounded-2xl group-hover:scale-105 transition-all duration-500 shadow-[0_10px_30px_rgba(255,255,255,0.1)]">
-                            <Image
-                                src="/rajat_avatar.webp"
-                                alt="Rajat Srivastava"
-                                fill
-                                className={cn(
-                                    "object-cover rounded-2xl transition-all rotate-3 group-hover:rotate-0"
-                                )}
-                            />
-                        </div>
-                        <div className="flex flex-col">
-                            <span className={cn(
-                                "font-sans font-semibold text-base tracking-tight leading-none mb-1 uppercase transition-colors duration-500",
-                                scrolled && isLightSection ? "text-stone-950" : "text-white"
-                            )}>
-                                RAJAT <span className={cn(
-                                    "font-light transition-colors duration-500",
-                                    scrolled && isLightSection ? "text-stone-400" : "text-stone-500"
-                                )}>SRIVASTAVA</span>
-                            </span>
-                            <span className="text-[8px] font-black tracking-[0.4em] uppercase text-nobel-gold">Architecting Intelligence</span>
-                        </div>
+        <motion.nav
+            initial={{ y: -100 }}
+            animate={{ y: 0 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
+            style={{
+                backdropFilter: scrolled ? 'blur(24px) saturate(1.4)' : 'none',
+                WebkitBackdropFilter: scrolled ? 'blur(24px) saturate(1.4)' : 'none',
+                background: scrolled
+                    ? 'linear-gradient(135deg, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.75) 100%)'
+                    : 'transparent',
+                borderBottom: scrolled ? '1px solid rgba(255,255,255,0.08)' : '1px solid transparent',
+            }}
+        >
+            <div className="container mx-auto px-6 lg:px-16 flex items-center justify-between h-20">
+                {/* Logo */}
+                <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                    className="flex items-center gap-4 group cursor-pointer"
+                >
+                    <div className="relative w-10 h-10 overflow-hidden rounded-xl border border-white/10 group-hover:border-nobel-gold/40 transition-all shrink-0">
+                        <Image src="/rajat_avatar.webp" alt="RS" fill className="object-cover" />
                     </div>
+                    <div className="flex flex-col justify-center gap-1">
+                        <div className="flex items-baseline gap-1 leading-none">
+                            <span className="text-white font-bold text-[17px] tracking-tight">RAJAT</span>
+                            <span className="text-white/40 font-light text-[17px] tracking-tight">SRIVASTAVA</span>
+                        </div>
+                        <span className="text-nobel-gold font-mono text-[9px] font-black tracking-[0.25em] uppercase opacity-80 group-hover:opacity-100 transition-opacity leading-none">Architecting Intelligence</span>
+                    </div>
+                </a>
 
-                    <div className={cn(
-                        "hidden lg:flex items-center gap-12 text-[10px] font-black tracking-[0.35em] uppercase transition-colors duration-500",
-                        scrolled && isLightSection ? "text-stone-500" : "text-stone-400"
-                    )}>
-                        {['profile', 'expertise', 'experience', 'impact'].map((item) => (
-                            <a
-                                key={item}
-                                href={`#${item}`}
-                                onClick={scrollToSection(item)}
-                                className={cn(
-                                    "transition-all cursor-pointer relative overflow-hidden group py-1",
-                                    scrolled && isLightSection ? "hover:text-stone-950" : "hover:text-white"
-                                )}
-                            >
-                                {item}
-                                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-nobel-gold transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></span>
-                            </a>
-                        ))}
+                {/* Desktop Nav */}
+                <div className="hidden lg:flex items-center gap-1">
+                    {navItems.map(item => (
                         <a
-                            href="mailto:rajat.sri.tech@gmail.com?subject=Opportunity"
-                            className={cn(
-                                "ml-8 px-8 py-3.5 rounded-full transition-all shadow-lg cursor-pointer hover:-translate-y-1 active:scale-95 font-bold tracking-[0.2em] text-[10px]",
-                                scrolled && isLightSection
-                                    ? "bg-stone-950 text-white hover:bg-nobel-gold"
-                                    : "bg-white text-stone-950 hover:bg-nobel-gold hover:text-white"
-                            )}
+                            key={item}
+                            href={`#${item.toLowerCase()}`}
+                            onClick={scrollToSection(item.toLowerCase())}
+                            className="relative px-5 py-2 text-[11px] font-bold tracking-[0.2em] uppercase text-white/50 hover:text-white transition-all duration-300 group"
                         >
-                            CONTACT RAJAT
+                            {item}
+                            <span className="absolute bottom-1 left-5 right-5 h-[2px] bg-nobel-gold/70 origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
                         </a>
-                    </div>
-
-                    <button
-                        className={cn(
-                            "lg:hidden p-3 rounded-2xl border transition-colors duration-500",
-                            scrolled && isLightSection
-                                ? "text-stone-950 bg-stone-100 border-stone-200/60"
-                                : "text-white bg-white/5 border-white/10"
-                        )}
-                        onClick={() => setMenuOpen(!menuOpen)}
-                    >
-                        {menuOpen ? <X size={24} /> : <Menu size={24} />}
-                    </button>
+                    ))}
                 </div>
-            </nav>
 
+                {/* Mobile Toggle */}
+                <button
+                    onClick={() => setMobileOpen(!mobileOpen)}
+                    className="lg:hidden text-white/60 hover:text-white p-2 rounded-lg hover:bg-white/5 transition-all"
+                >
+                    {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+                </button>
+            </div>
+
+            {/* Mobile Menu */}
             <AnimatePresence>
-                {menuOpen && (
+                {mobileOpen && (
                     <motion.div
-                        initial={{ opacity: 0, x: '100%' }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: '100%' }}
-                        transition={{ type: "spring", damping: 30, stiffness: 200 }}
-                        className="fixed inset-0 z-[110] bg-stone-950 flex flex-col p-12 text-white"
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        className="lg:hidden overflow-hidden"
+                        style={{
+                            background: 'linear-gradient(180deg, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.98) 100%)',
+                            backdropFilter: 'blur(24px) saturate(1.4)',
+                            borderBottom: '1px solid rgba(255,255,255,0.08)',
+                        }}
                     >
-                        <div className="flex justify-end mb-16">
-                            <button onClick={() => setMenuOpen(false)} className="p-5 bg-white/5 rounded-full border border-white/10"><X size={32} /></button>
-                        </div>
-                        <div className="flex flex-col gap-10 text-3xl font-sans font-semibold">
-                            {['profile', 'expertise', 'experience', 'impact'].map(item => (
-                                <a key={item} href={`#${item}`} onClick={scrollToSection(item)} className="hover:text-nobel-gold transition-colors uppercase tracking-tighter">{item}</a>
+                        <div className="px-6 py-6 space-y-2">
+                            {navItems.map(item => (
+                                <a
+                                    key={item}
+                                    href={`#${item.toLowerCase()}`}
+                                    onClick={scrollToSection(item.toLowerCase())}
+                                    className="block px-4 py-3 text-[12px] font-bold tracking-[0.3em] uppercase text-white/60 hover:text-white hover:bg-white/5 rounded-xl transition-all"
+                                >
+                                    {item}
+                                </a>
                             ))}
                         </div>
                     </motion.div>
                 )}
             </AnimatePresence>
-        </>
+        </motion.nav>
     );
 };
 

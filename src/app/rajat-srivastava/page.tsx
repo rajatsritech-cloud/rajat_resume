@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
+import dynamic from 'next/dynamic';
 import Navbar from "@/components/sections/Navbar";
 import Hero from "@/components/sections/Hero";
-import Profile from "@/components/sections/Profile";
-import Experience from "@/components/sections/Experience";
-import Impact from "@/components/sections/Impact";
-import Expertise from "@/components/sections/Expertise";
-import Education from "@/components/sections/Education";
-import Footer from "@/components/sections/Footer";
+
+const Profile = dynamic(() => import("@/components/sections/Profile"));
+const Experience = dynamic(() => import("@/components/sections/Experience"));
+const Impact = dynamic(() => import("@/components/sections/Impact"));
+const Expertise = dynamic(() => import("@/components/sections/Expertise"));
+const Education = dynamic(() => import("@/components/sections/Education"));
+const Footer = dynamic(() => import("@/components/sections/Footer"));
 
 export const metadata: Metadata = {
     title: "Rajat Srivastava - Senior Software Architect & AI Engineer",

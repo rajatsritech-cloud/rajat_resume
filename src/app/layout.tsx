@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display, JetBrains_Mono } from "next/font/google";
+import { Plus_Jakarta_Sans, Playfair_Display, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
+const plusJakarta = Plus_Jakarta_Sans({
     subsets: ["latin"],
     variable: "--font-sans",
+    weight: ["400", "500", "700"],
 });
 
 const playfair = Playfair_Display({
@@ -24,12 +25,12 @@ export const metadata: Metadata = {
     },
     description: "Senior Full-Stack Software Engineer specializing in large-scale systems, Enterprise Modernization, and Agentic AI. Expert in Azure, React, Node.js, and Cloud-Native Architectures.",
     keywords: ["Rajat Srivastava", "Senior Full-Stack Engineer", "AI Architect", "Enterprise Modernization", "Agentic AI", "Azure", "React", "Node.js", "System Design", "Cloud Native"],
-    authors: [{ name: "Rajat Srivastava", url: "https://www.linkedin.com/in/rajat-srivastava-dev/" }], // Replace with actual LinkedIn if known, or generic
+    authors: [{ name: "Rajat Srivastava", url: "https://www.linkedin.com/in/rajat-srivastava-dev/" }],
     creator: "Rajat Srivastava",
     openGraph: {
         type: "website",
         locale: "en_US",
-        url: "https://rajatsrivastava.com", // Placeholder, user can update
+        url: "https://rajatsrivastava.com",
         title: "Rajat Srivastava | Senior Full-Stack Architect",
         description: "Architecting Intelligence - Senior Full-Stack Software Engineer specializing in large-scale systems and enterprise AI modernization.",
         siteName: "Rajat Srivastava Portfolio",
@@ -47,7 +48,7 @@ export const metadata: Metadata = {
         title: "Rajat Srivastava | Senior Full-Stack Architect",
         description: "Senior Full-Stack Software Engineer specializing in large-scale systems and enterprise AI modernization.",
         images: ["/rajat_avatar.webp"],
-        creator: "@rajatsri", // Placeholder
+        creator: "@rajatsri",
     },
     icons: {
         icon: "/rajat_avatar.webp",
@@ -70,7 +71,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body
-                className={`${inter.variable} ${playfair.variable} ${jetbrainsMono.variable} antialiased`}
+                className={`${plusJakarta.variable} ${playfair.variable} ${jetbrainsMono.variable} antialiased`}
             >
                 {children}
             </body>

@@ -3,18 +3,17 @@
 @tailwind utilities;
 
 /* ═══════════════════════════════════════════════════
-   ENTERPRISE TYPOGRAPHY SYSTEM
-   Primary: Inter · Accent: Playfair Display · Code: JetBrains Mono
-   Scale: Major Third (1.25) · Base: 16px
-   Target: FAANG-level professional presentation
+   CINEMATIC DARK DESIGN SYSTEM
+   Primary: Plus Jakarta Sans · Accent: Playfair Display · Code: JetBrains Mono
+   Theme: Unified Dark Cinematic with Liquid Glass
    ═══════════════════════════════════════════════════ */
 
 :root {
-  --background: #FDFDFB;
-  --foreground: #0c0a09;
+  --background: #0a0a0a;
+  --foreground: #ffffff;
 
   /* Font Stacks */
-  --font-family-sans: var(--font-sans), "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-family-sans: var(--font-sans), "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-family-serif: var(--font-serif), "Playfair Display", Georgia, "Times New Roman", serif;
   --font-family-mono: var(--font-mono), "JetBrains Mono", "Fira Code", "Cascadia Code", Consolas, monospace;
 }
@@ -29,15 +28,23 @@
   }
 
   body {
-    @apply bg-background text-foreground antialiased selection:bg-nobel-gold selection:text-white;
+    @apply bg-background text-foreground antialiased;
     font-family: var(--font-family-sans);
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.6;
     letter-spacing: -0.011em;
+    background-color: #0a0a0a;
+    color: #ffffff;
   }
 
-  /* Headings — Clean sans-serif for enterprise feel */
+  /* Selection */
+  ::selection {
+    background-color: rgba(197, 160, 89, 0.3);
+    color: #ffffff;
+  }
+
+  /* Headings */
   h1,
   h2,
   h3,
@@ -49,6 +56,7 @@
     line-height: 1.2;
     letter-spacing: -0.025em;
     margin: 0 0 0.5em;
+    color: #ffffff;
   }
 
   h1 {
@@ -96,5 +104,47 @@
     text-decoration: none;
     color: inherit;
     transition: color 0.2s ease;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0a0a0a;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+}
+
+/* Liquid Glass Utility */
+@layer utilities {
+  .glass-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+    backdrop-filter: blur(24px) saturate(1.4);
+    -webkit-backdrop-filter: blur(24px) saturate(1.4);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 1rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .glass-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60%;
+    height: 60%;
+    background: radial-gradient(ellipse at 20% 20%, rgba(255, 255, 255, 0.06) 0%, transparent 70%);
+    pointer-events: none;
   }
 }

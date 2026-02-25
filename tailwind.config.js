@@ -18,8 +18,8 @@ module.exports = {
         },
         extend: {
             colors: {
-                background: "var(--background)",
-                foreground: "var(--foreground)",
+                background: "#0a0a0a",
+                foreground: "#ffffff",
                 "nobel-gold": "#C5A059",
             },
             fontFamily: {
