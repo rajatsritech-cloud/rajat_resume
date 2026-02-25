@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Zap, ChevronRight, Linkedin, Github, Globe, Loader2 } from 'lucide-react';
+import { Zap, ChevronRight, Linkedin, Github, Globe } from 'lucide-react';
 import Image from 'next/image';
 import VideoBackground from "@/components/presentation/VideoBackground";
 

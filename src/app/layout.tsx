@@ -19,6 +19,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+    metadataBase: new URL('https://rajatsrivastava.com'),
     title: {
         default: "Rajat Srivastava | Senior Full-Stack Architect & AI Engineer",
         template: "%s | Rajat Srivastava"
