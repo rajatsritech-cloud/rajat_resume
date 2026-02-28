@@ -12,13 +12,20 @@ const Hero = () => {
     const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
     useEffect(() => {
+        // Fallback: If video takes longer than 2.5s to trigger events or fails, unlock UI anyway
+        const failsafeTimeout = setTimeout(() => {
+            if (!isVideoLoaded) setIsVideoLoaded(true);
+        }, 2500);
+
         if (!isVideoLoaded) {
             document.body.style.overflow = 'hidden';
             window.scrollTo(0, 0);
         } else {
             document.body.style.overflow = '';
         }
+
         return () => {
+            clearTimeout(failsafeTimeout);
             document.body.style.overflow = '';
         };
     }, [isVideoLoaded]);

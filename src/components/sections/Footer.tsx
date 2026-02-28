@@ -63,7 +63,7 @@ const Footer = () => {
                                 <span className="relative z-10 flex items-center gap-4">INITIATE HIRE <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" /></span>
                                 <div className="absolute inset-0 bg-nobel-gold opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                             </button>
-                            <a href="/rajatsrivastava_resume.pdf" download
+                            <a href="/rajatsrivastava_resume_2026.pdf" download
                                 className="px-8 py-5 glass-card rounded-full font-bold text-[11px] tracking-[0.3em] uppercase text-white hover:border-nobel-gold/50 transition-all"
                             >
                                 DOWNLOAD RESUME
