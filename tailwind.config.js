@@ -13,19 +13,19 @@ module.exports = {
                 md: '768px',
                 lg: '1024px',
                 xl: '1280px',
-                '2xl': '1280px',  // Cap at 1280px — prevents expansion on zoom-out
+                '2xl': '1280px',
             },
         },
         extend: {
             colors: {
-                background: "#0a0a0a",
-                foreground: "#ffffff",
-                "nobel-gold": "#C5A059",
+                background: "#050505",
+                foreground: "#f5f5f5",
+                "nobel-gold": "#D4A853",
+                "card-bg": "rgba(255,255,255,0.03)",
             },
             fontFamily: {
-                serif: ["var(--font-serif)", "serif"],
-                sans: ["var(--font-sans)", "sans-serif"],
-                mono: ["var(--font-mono)", "monospace"],
+                sans: ["var(--font-sans)", "Inter", "sans-serif"],
+                mono: ["var(--font-mono)", "JetBrains Mono", "monospace"],
             },
         },
     },

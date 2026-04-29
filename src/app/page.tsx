@@ -1,11 +1,13 @@
+import dynamic from 'next/dynamic';
 import Navbar from "@/components/sections/Navbar";
 import Hero from "@/components/sections/Hero";
-import Profile from "@/components/sections/Profile";
-import Experience from "@/components/sections/Experience";
-import Impact from "@/components/sections/Impact";
-import Expertise from "@/components/sections/Expertise";
-import Education from "@/components/sections/Education";
-import Footer from "@/components/sections/Footer";
+
+const Profile = dynamic(() => import("@/components/sections/Profile"), { ssr: true });
+const Experience = dynamic(() => import("@/components/sections/Experience"), { ssr: true });
+const Impact = dynamic(() => import("@/components/sections/Impact"), { ssr: true });
+const Expertise = dynamic(() => import("@/components/sections/Expertise"), { ssr: true });
+const Education = dynamic(() => import("@/components/sections/Education"), { ssr: true });
+const Footer = dynamic(() => import("@/components/sections/Footer"), { ssr: true });
 
 export default function Home() {
     return (

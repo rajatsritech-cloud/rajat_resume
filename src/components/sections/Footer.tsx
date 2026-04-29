@@ -4,11 +4,8 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Linkedin, Github, Mail, MapPin, Phone, ChevronRight, Globe } from 'lucide-react';
 import Image from 'next/image';
-import { CloudSystemScene } from "@/components/visualizations/QuantumScene";
 import EmailModal from "@/components/ui/EmailModal";
-import VideoBackground from "@/components/presentation/VideoBackground";
-
-const VIDEO_SRC = 'https://videos.pexels.com/video-files/27607570/12184333_1920_1080_24fps.mp4';
+import { GridMatrixBackground } from "@/components/visualizations/AnimatedBackgrounds";
 
 const Footer = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -28,44 +25,36 @@ const Footer = () => {
         <footer className="relative overflow-hidden">
             <EmailModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
 
-            {/* CTA Section with Video */}
-            <div className="relative pt-32 pb-24">
-                {/* Video BG */}
-                <div className="absolute inset-0 z-0">
-                    <VideoBackground src={VIDEO_SRC} />
-                    <div className="absolute inset-0 bg-black/50" />
-                    <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-transparent to-[#0a0a0a]/90" />
-                </div>
+            {/* CTA Section */}
+            <div className="relative pt-28 pb-24">
+                <div className="section-divider" />
 
-                {/* 3D Scene overlay */}
-                <div className="absolute inset-0 z-[1] opacity-50 pointer-events-none">
-                    <CloudSystemScene />
-                </div>
+                {/* Mesh BG */}
+                <GridMatrixBackground />
 
-                <div className="text-center relative z-20 px-6">
+                <div className="text-center relative z-20 px-6 pt-4">
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 1 }}
                     >
-                        <span className="text-nobel-gold font-black text-[11px] tracking-[0.8em] uppercase mb-10 block">AVAILABLE FOR LEADERSHIP</span>
-                        <h2 className="text-4xl md:text-5xl font-semibold mb-12 leading-[1.1] tracking-tight text-white uppercase">Architecting <br />the Enterprise <br /><span className="text-white/30 font-light">Era.</span></h2>
-                        <div className="flex flex-col md:flex-row justify-center items-center gap-5">
+                        <span className="text-nobel-gold font-semibold text-[13px] tracking-[0.5em] uppercase mb-8 block">AVAILABLE FOR LEADERSHIP</span>
+                        <h2 className="font-semibold mb-10 leading-[1.08] tracking-tighter text-white uppercase">Architecting <br />the Enterprise <br /><span className="font-extralight" style={{ color: 'rgba(255,255,255,0.2)' }}>Era.</span></h2>
+                        <div className="flex flex-col md:flex-row justify-center items-center gap-4">
                             <button onClick={() => setIsModalOpen(true)}
-                                className="px-10 py-5 rounded-full font-bold text-[11px] tracking-[0.3em] uppercase transition-all flex items-center gap-4 group relative overflow-hidden"
+                                className="group relative px-8 py-3.5 rounded-full text-[13px] font-semibold tracking-[0.2em] uppercase transition-all flex items-center gap-3 overflow-hidden"
                                 style={{
-                                    background: 'linear-gradient(135deg, #ffffff, #e0e0e0)',
-                                    color: '#0a0a0a',
-                                    boxShadow: '0 16px 40px -8px rgba(255,255,255,0.2)',
+                                    background: 'linear-gradient(135deg, #ffffff, #f0f0f0)',
+                                    color: '#050505',
+                                    boxShadow: '0 8px 24px -4px rgba(255,255,255,0.15), 0 0 0 1px rgba(255,255,255,0.1)',
                                 }}
                             >
-                                <span className="relative z-10 flex items-center gap-4">INITIATE HIRE <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" /></span>
+                                <span className="relative z-10 flex items-center gap-3">INITIATE HIRE <ChevronRight size={16} className="group-hover:translate-x-0.5 transition-transform" /></span>
                                 <div className="absolute inset-0 bg-nobel-gold opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                             </button>
                             <a href="/rajatsrivastava_resume_2026.pdf" download
-                                className="px-8 py-5 glass-card rounded-full font-bold text-[11px] tracking-[0.3em] uppercase text-white hover:border-nobel-gold/50 transition-all"
-                            >
+                                className="px-7 py-3.5 glass-card rounded-full text-[13px] font-semibold tracking-[0.2em] uppercase text-white/80 hover:text-white transition-all">
                                 DOWNLOAD RESUME
                             </a>
                         </div>
@@ -74,56 +63,64 @@ const Footer = () => {
             </div>
 
             {/* Footer Info */}
-            <div className="py-16 relative z-20" style={{ background: '#0a0a0a', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+            <div className="py-14 relative z-20" style={{ background: '#050505' }}>
+                <div className="section-divider mb-14" />
                 <div className="container mx-auto px-6 lg:px-20">
-                    <div className="grid grid-cols-1 md:grid-cols-12 gap-14 mb-16">
+                    <div className="grid grid-cols-1 md:grid-cols-12 gap-14 mb-14">
                         <div className="md:col-span-6">
-                            <div className="flex items-center gap-5 mb-8">
-                                <div className="relative w-16 h-16 shadow-2xl">
-                                    <Image
-                                        src="/rajat_avatar.webp"
-                                        alt="Rajat Srivastava"
-                                        fill
-                                        className="object-cover rounded-2xl border border-white/10"
-                                    />
+                            <div className="flex items-center gap-4 mb-6">
+                                <div className="relative w-12 h-12" style={{ boxShadow: '0 8px 24px -6px rgba(0,0,0,0.5)' }}>
+                                    <Image src="/rajat_avatar.webp" alt="Rajat Srivastava" fill
+                                        className="object-cover rounded-xl" />
                                 </div>
-                                <span className="font-semibold text-xl tracking-tight text-white uppercase leading-none">RAJAT <br /><span className="text-white/40 font-light">SRIVASTAVA</span></span>
+                                <span className="font-semibold text-base tracking-tight text-white uppercase leading-none">RAJAT <br /><span className="text-white/30 font-light">SRIVASTAVA</span></span>
                             </div>
-                            <p className="text-[17px] font-light leading-relaxed max-w-xl mb-10 text-white/50">
+                            <p className="text-[17px] font-light leading-relaxed max-w-xl mb-7 text-white/40">
                                 &quot;Dedicated to driving technical excellence, mentoring world-class teams, and architecting scalable AI-first solutions.&quot;
                             </p>
-                            <div className="flex gap-8">
-                                <a href="https://www.linkedin.com/in/rajat-srivastava-dev/" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-white transition-all transform hover:scale-110"><Linkedin size={22} /></a>
-                                <a href="https://github.com/rajatsritech-cloud" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-white transition-all transform hover:scale-110"><Github size={22} /></a>
-                                <a href="http://statementextract.com/" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-white transition-all transform hover:scale-110"><Globe size={22} /></a>
-                                <button onClick={() => setIsModalOpen(true)} className="text-white/30 hover:text-white transition-all transform hover:scale-110"><Mail size={22} /></button>
+                            <div className="flex gap-3">
+                                {[
+                                    { href: "https://www.linkedin.com/in/rajat-srivastava-dev/", icon: <Linkedin size={18} /> },
+                                    { href: "https://github.com/rajatsritech-cloud", icon: <Github size={18} /> },
+                                    { href: "http://statementextract.com/", icon: <Globe size={18} /> },
+                                ].map((s, i) => (
+                                    <a key={i} href={s.href} target="_blank" rel="noopener noreferrer"
+                                        className="w-9 h-9 rounded-lg flex items-center justify-center text-white/25 hover:text-white hover:bg-white/[0.04] transition-all duration-300">
+                                        {s.icon}
+                                    </a>
+                                ))}
+                                <button onClick={() => setIsModalOpen(true)}
+                                    className="w-9 h-9 rounded-lg flex items-center justify-center text-white/25 hover:text-white hover:bg-white/[0.04] transition-all duration-300">
+                                    <Mail size={18} />
+                                </button>
                             </div>
                         </div>
                         <div className="md:col-span-2">
-                            <h5 className="text-[11px] font-black tracking-[0.6em] uppercase text-white/60 mb-6">Directory</h5>
-                            <ul className="space-y-5 text-[12px] font-black uppercase tracking-[0.3em]">
+                            <h5 className="text-[12px] font-medium tracking-[0.4em] uppercase text-white/30 mb-5">Directory</h5>
+                            <ul className="space-y-3.5 text-[14px] font-medium uppercase tracking-[0.2em]">
                                 {['Profile', 'Expertise', 'Experience', 'Impact'].map(item => (
-                                    <li key={item}><a href={`#${item.toLowerCase()}`} onClick={scrollToSection(item.toLowerCase())} className="text-white/40 hover:text-nobel-gold transition-colors block w-fit">{item}</a></li>
+                                    <li key={item}><a href={`#${item.toLowerCase()}`} onClick={scrollToSection(item.toLowerCase())} className="text-white/30 hover:text-nobel-gold transition-colors block w-fit">{item}</a></li>
                                 ))}
                             </ul>
                         </div>
                         <div className="md:col-span-4">
-                            <h5 className="text-[11px] font-black tracking-[0.6em] uppercase text-white/60 mb-6">Connections</h5>
-                            <div className="space-y-6 text-[17px] font-light text-white/50">
-                                <p className="flex items-center gap-5 group cursor-pointer transition-all hover:text-white mb-0"><MapPin size={18} className="text-nobel-gold group-hover:scale-110 transition-transform" /> Bengaluru, India</p>
-                                <button onClick={() => setIsModalOpen(true)} className="flex items-center gap-5 group cursor-pointer transition-all hover:text-white text-white/50 font-light text-[17px]"><Mail size={18} className="text-nobel-gold group-hover:scale-110 transition-transform" /> rajat.sri.tech@gmail.com</button>
-                                <p className="flex items-center gap-5 group cursor-pointer transition-all hover:text-white mb-0"><Phone size={18} className="text-nobel-gold group-hover:scale-110 transition-transform" /> +91 9664258497</p>
+                            <h5 className="text-[12px] font-medium tracking-[0.4em] uppercase text-white/30 mb-5">Connections</h5>
+                            <div className="space-y-4 text-[17px] font-light text-white/40">
+                                <p className="flex items-center gap-4 group cursor-pointer transition-all hover:text-white mb-0"><MapPin size={15} className="text-nobel-gold group-hover:scale-110 transition-transform" /> Bengaluru, India</p>
+                                <button onClick={() => setIsModalOpen(true)} className="flex items-center gap-4 group cursor-pointer transition-all hover:text-white text-white/40 font-light text-[17px]"><Mail size={15} className="text-nobel-gold group-hover:scale-110 transition-transform" /> rajat.sri.tech@gmail.com</button>
+                                <p className="flex items-center gap-4 group cursor-pointer transition-all hover:text-white mb-0"><Phone size={15} className="text-nobel-gold group-hover:scale-110 transition-transform" /> +91 9664258497</p>
                             </div>
                         </div>
                     </div>
 
-                    <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
-                        <p className="text-[9px] tracking-[0.6em] uppercase opacity-30 font-black text-white mb-0">
+                    <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-5" style={{ borderTop: '1px solid rgba(255,255,255,0.03)' }}>
+                        <p className="text-[10px] tracking-[0.4em] uppercase text-white/15 font-medium mb-0">
                             © {new Date().getFullYear()} RAJAT SRIVASTAVA • ENGINEERED FOR FUTURE SCALE
                         </p>
-                        <div className="flex gap-6 items-center glass-card px-6 py-3 rounded-full">
-                            <div className="w-3 h-3 rounded-full bg-green-500 shadow-[0_0_20px_rgba(34,197,94,0.5)] animate-pulse"></div>
-                            <span className="text-[9px] font-black tracking-[0.4em] text-white/60 uppercase leading-none">Available for Lead Engineering Roles</span>
+                        <div className="flex gap-4 items-center px-4 py-2 rounded-full"
+                            style={{ background: 'rgba(255,255,255,0.02)', boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.03)' }}>
+                            <div className="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_12px_rgba(34,197,94,0.4)] animate-pulse"></div>
+                            <span className="text-[11px] font-medium tracking-[0.3em] text-white/40 uppercase leading-none">Available for Lead Engineering Roles</span>
                         </div>
                     </div>
                 </div>
