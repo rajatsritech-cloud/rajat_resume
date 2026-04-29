@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Mail, Target, Star } from 'lucide-react';
 import EmailModal from "@/components/ui/EmailModal";
+import { ArchitecturalFlowBackground } from "@/components/visualizations/AnimatedBackgrounds";
 
 const Profile = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -11,6 +12,7 @@ const Profile = () => {
     return (
         <section id="profile" className="relative z-10 overflow-hidden py-24" style={{ background: '#050505' }}>
             <EmailModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+            <ArchitecturalFlowBackground variant="profile" />
 
             <div className="container mx-auto px-6 lg:px-20 relative z-10">
                 <div className="flex flex-col lg:flex-row gap-16 items-start">

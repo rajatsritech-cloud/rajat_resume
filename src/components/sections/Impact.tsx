@@ -3,11 +3,13 @@
 import React from 'react';
 import { EngineeringImpactDiagram } from "@/components/visualizations/Diagrams";
 import { motion } from 'framer-motion';
+import { ArchitecturalFlowBackground } from "@/components/visualizations/AnimatedBackgrounds";
 
 const Impact = () => {
     return (
         <section id="impact" className="py-24 relative overflow-hidden" style={{ background: '#050505' }}>
-            <div className="section-divider" />
+            <div className="section-divider relative z-10" />
+            <ArchitecturalFlowBackground variant="impact" />
 
             <div className="container mx-auto px-6 lg:px-20 relative z-10 pt-4">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
