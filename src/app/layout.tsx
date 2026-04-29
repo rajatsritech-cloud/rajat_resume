@@ -17,6 +17,8 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
     metadataBase: new URL('https://rajatsrivastava.com'),
+    applicationName: "Rajat Srivastava Portfolio",
+    category: "Portfolio",
     title: {
         default: "Rajat Srivastava | Senior Full-Stack Architect & AI Engineer",
         template: "%s | Rajat Srivastava"
@@ -55,6 +57,17 @@ export const metadata: Metadata = {
     },
     alternates: {
         canonical: "/",
+    },
+    robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+            index: true,
+            follow: true,
+            "max-image-preview": "large",
+            "max-snippet": -1,
+            "max-video-preview": -1,
+        },
     },
     verification: {
         google: "L_dXqIlF8tnfrYcw8BqzKy6TPOqlotz84EBCYgDJ_0k",

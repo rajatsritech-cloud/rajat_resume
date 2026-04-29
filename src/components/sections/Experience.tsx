@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Briefcase } from 'lucide-react';
-import { DataFlowBackground } from "@/components/visualizations/AnimatedBackgrounds";
+
 
 import Image from 'next/image';
 

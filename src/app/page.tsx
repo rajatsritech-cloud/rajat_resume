@@ -1,6 +1,7 @@
 import dynamic from 'next/dynamic';
 import Navbar from "@/components/sections/Navbar";
 import Hero from "@/components/sections/Hero";
+import StructuredData from "@/components/seo/StructuredData";
 
 const Profile = dynamic(() => import("@/components/sections/Profile"), { ssr: true });
 const Experience = dynamic(() => import("@/components/sections/Experience"), { ssr: true });
@@ -12,6 +13,7 @@ const Footer = dynamic(() => import("@/components/sections/Footer"), { ssr: true
 export default function Home() {
     return (
         <div className="min-h-screen">
+            <StructuredData />
             <Navbar />
             <main>
                 <Hero />

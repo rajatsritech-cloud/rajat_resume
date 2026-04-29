@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import dynamic from 'next/dynamic';
 import Navbar from "@/components/sections/Navbar";
 import Hero from "@/components/sections/Hero";
+import StructuredData from "@/components/seo/StructuredData";
 
 const Profile = dynamic(() => import("@/components/sections/Profile"));
 const Experience = dynamic(() => import("@/components/sections/Experience"));
@@ -33,6 +34,7 @@ export const metadata: Metadata = {
 export default function RajatSrivastavaPage() {
     return (
         <div className="min-h-screen">
+            <StructuredData />
             <Navbar />
             <main>
                 <Hero />

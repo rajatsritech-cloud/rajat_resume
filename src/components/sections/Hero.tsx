@@ -4,7 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Zap, ChevronRight, Linkedin, Github, Globe } from 'lucide-react';
 import Image from 'next/image';
-import { HeroBackground } from "@/components/visualizations/AnimatedBackgrounds";
+
 
 const Hero = () => {
     const scrollToSection = (id: string) => (e: React.MouseEvent) => {
